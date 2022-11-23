@@ -2,16 +2,14 @@
 <h3>Works on Windows and Mac OS. Write your code in BASIC (very similar to the Basic MSX but with some differences) and the compiler will create an assembly file that will go directly on .ROM or .DSK, to try on the emulator or real MSX.
 First select the emulator path.
 
+
+![screenshot3](https://user-images.githubusercontent.com/118820016/203636763-f5b9a3da-550d-4ac0-a9c8-87012059e98a.png)
+
+
 Then open a project "*.msxproj" or create one yourself.
 When you are ready, press "F5" to compile and RUN!
 In the same folder you will find the ".DSK" or ".ROM" file, and ".ASM" source file if you have selected the option in the settings!
 </h3>
-
-
-
-![screenshot2](https://user-images.githubusercontent.com/118820016/203424623-6bc876ef-61fd-42c5-8d8e-f555e0363de0.png)
-
-
 
 <H1>How it's work</H1>
 <h3>The compiler read BASIC code and translate it in ASSEMBLER, then translate it in BINARY code
@@ -57,5 +55,7 @@ The supported variables are:</h3>
 <h3>Every variable must be declared with DIM before use it</h3>
 
 
+
+![screenshot2](https://user-images.githubusercontent.com/118820016/203424623-6bc876ef-61fd-42c5-8d8e-f555e0363de0.png)
 
 
