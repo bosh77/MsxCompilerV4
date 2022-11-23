@@ -17,7 +17,7 @@ In the same folder you will find the ".DSK" or ".ROM" file, and ".ASM" source fi
 <h3>The compiler read BASIC code and translate it in ASSEMBLER, then translate it in BINARY code
     <br>
 You can save and see ASM file if you want, select relative option in Settings window</h3>
-<h3>if the binary code resulting from the compilation is greater than 16kb, then you will have to divide your project into more than one file, each with a maximum of 16kb of binary code, up to a maximum of 8 files.
+<h3>if the binary code resulting from the compilation is greater than 16kb, then you will have to divide your project into more than one file, each with a maximum of 16kb of binary code, up to a maximum of 16 files.
     It is possible to make calls between files with the instructions CALLPAGE (as gosub) and JUMPPAGE (as goto) </h3>
 <h3>example: CALLPAGE 1,100 --> make a calling to page 1 at line 100</h3>
 <h3>Look at example folders to see how it's work</h3>
