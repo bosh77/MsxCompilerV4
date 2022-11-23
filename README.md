@@ -22,8 +22,8 @@ You can save and see ASM file if you want, select relative option in Settings wi
 <h3>example: CALLPAGE 1,100 --> make a calling to page 1 at line 100</h3>
 <h3>Look at example folders to see how it's work</h3>
 <h3>You can select TARGET of your compilation (CARTRIDGE or DISK)</h3>
-<h3>Depending on the TARGET (cartridge or disk), a .ROM file of a maximum of 128kb or a .DSK
-    file containing up to a maximum of 8 files of 16kb each will be created!</h3>
+<h3>Depending on the TARGET (cartridge or disk), a .ROM file of a maximum of 256kb or a .DSK
+    file containing up to a maximum of 16 binary files of 16kb each will be created!</h3>
 
 <h4>
     <ul>
