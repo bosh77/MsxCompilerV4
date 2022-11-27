@@ -62,7 +62,7 @@ The supported variables are:</h3>
 <h2>Supported instructions:</h2>
 
 <h3>#lenstrings, #Imports, #SetVarAddress, IncludeFile, CallPage, JumpPage, AsmLine, Goto, Gosub, Return, Dim, Cls,GetChar, GetKey,
-Screen, Set page, Setpage, Draw2Block, DrawBlock, DrawNumber, AddNumber, GetAddressLine,
+Screen, Set page, Setpage, DrawXBlock, DrawBlock, DrawNumber, AddNumber, GetAddressLine,
 GetDate, GetTime, GetFiles, GetFileName, SetPalette, SetVDP, Color, Color=,Locate,Print,Stick,Strig,
 Pset, Circle, Paint, Line, Copy, Vpoke, Poke, Vpeek, Peek, PutSprite, Put Sprite, DataB,
 DataF, DataI, DataS, ReadB, ReadF, ReadI, ReadS, Restore, DrawText, if...then...else,
@@ -136,9 +136,9 @@ SetVarsPage</h3>
 <h3>Example: DrawBlock 0, 0, 10, 32</h3>
 <h3>(See some examples in the Example folders)</h3>
 
-<h2><font color="blue">Draw2Block ram, vram, lines, wram, wvram, addvram</font></h2>
+<h2><font color="blue">DrawXBlock ram, vram, lines, wram, wvram, addvram</font></h2>
 <h3>Copy a block of memory from RAM to VRAM, it is also possible to specify 2 additional parameters</h3>
-<h3>Example: Draw2Block 0, 0, 10, 32, 20, 40</h3>
+<h3>Example: DrawXBlock 0, 0, 10, 32, 20, 40</h3>
 <h3>(See some examples in the Example folders)</h3>
 
 <h2><font color="blue">GetDate</font></h2>
