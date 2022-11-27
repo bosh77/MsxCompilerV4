@@ -96,6 +96,8 @@ SetVarsPage</h3>
 <h3>Set length of string. His value can be 15,31,63,127 or 255.</h3>
 <h3>Example: #lenstrings=31</h3>
 
+<h2><font color="blue"> #SetVarAddress</font></h2>
+
 <h3>Set the initial memory address of the variables</h3>
 <h3>Example: #SetVarAddress=$9000</h3>
 
