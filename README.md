@@ -63,7 +63,7 @@ The supported variables are:</h3>
 
 <h3>#lenstrings, #Imports, #SetVarAddress, IncludeFile, CallPage, JumpPage, AsmLine, Goto, Gosub, Return, Dim, Cls,GetChar, GetKey,
 Screen, Set page, Setpage, DrawXBlock, DrawBlock, DrawNumber, AddNumber, GetAddressLine,
-GetDate, GetTime, GetFiles, GetFileName, SetPalette, SetVDP, Color, Color=,Locate,Print,Stick,Strig,
+GetDate, GetTime, GetFiles, GetFileName, SetPalette, SetVDP, Color, Color=, Locate, Print, Stick, Strig,
 Pset, Circle, Paint, Line, Copy, Vpoke, Poke, Vpeek, Peek, PutSprite, Put Sprite, DataB,
 DataF, DataI, DataS, ReadB, ReadF, ReadI, ReadS, Restore, DrawText, if...then...else,
 for...next, GetPoint, SetScroll, Sound, SaveData, LoadData, LoadDataToVram, SaveDataFromVram, CopyRamToVram, CopyVramToRam,
@@ -96,7 +96,7 @@ SetVarsPage</h3>
 <h3>Set length of string. His value can be 15,31,63,127 or 255.</h3>
 <h3>Example: #lenstrings=31</h3>
 
-<h2><font color="blue"> #SetVarAddress</font></h2>
+<h2><font color="blue">#SetVarAddress</font></h2>
 
 <h3>Set the initial memory address of the variables</h3>
 <h3>Example: #SetVarAddress=$9000</h3>
@@ -169,6 +169,103 @@ SetVarsPage</h3>
 <h3>Recover the name of a file from a index variable set before via Getfiles (see Getfiles)</h3>
 <h3>Example: GetFileName numfile, filesdata, filename</h3>
 
+<h2><font color="blue">SaveData drive,filename,iddata,lengthdata</font></h2>
+<h3>Save a block of RAM memory on the disk, starting from the iddata memory address for the specified length.</h3>
+<h3>Example: SaveData 0,"filename.ext",iddata,100</h3>
+
+<h2><font color="blue">LoadData drive,filename,iddata</font></h2>
+<h3>Load a file in the RAM memory, the initial address is specified by the iddata variable.</h3>
+<h3>Example: LoadData 0,"filename.ext",iddata</h3>
+
+<h2><font color="blue">SaveDataFromVram drive,filename,iddata,lengthdata</font></h2>
+<h3>Save a block of VRAM memory on the disk, starting from the iddata memory address for the specified length.</h3>
+<h3>Example: SaveDataFromVram 0,"filename.ext",iddata,16384</h3>
+
+<h2><font color="blue">LoadDataToVram drive,filename,iddata</font></h2>
+<h3>Load a file in the VRAM memory, the initial address is specified by the iddata variable.</h3>
+<h3>Example: LoadDataToVram 0,"filename.ext",iddata</h3>
+
+<h2><font color="blue">ReadSector drive,idram,sector</font></h2>
+<h3>Load a Disk Sector to RAM memory, the initial address is specified by the idram variable.</h3>
+<h3>Example: ReadSector 0,32768,1</h3>
+
+<h2><font color="blue">WriteSector drive,idram,sector</font></h2>
+<h3>He writes a sector on the disk with the 512 bytes contained in the RAM to the address specified by the idram variable.</h3>
+<h3>Be careful to use this command because it could compromise the disk in case of incorrect writing (always make a copy of the disk).</h3>
+<h3>Example: WriteSector 0,32768,14</h3>
+
+<h2><font color="blue">CopyRamToVram ramaddress,vramaddress,lengthdata</font></h2>
+<h3>Copy a block of memory from RAM to VRAM.</h3>
+<h3>Example: CopyRamToVram 32768,0,16384</h3>
+
+<h2><font color="blue">CopyVramToRam vramaddress,ramaddress,lengthdata</font></h2>
+<h3>Copy a block of memory from VRAM to RAM.</h3>
+<h3>Example: CopyRamToVram 0,32768,16384</h3>
+
+<h2><font color="blue">GetCollision c,x1,y1,w1,h1,x2,y2,w2,h2</font></h2>
+<h3>It detects a collision between two rectangular objects (for example two sprites) and returns 255 in the c variable in case of collision.
+    The variables X1, Y1, W1, H1, X2, Y2, W2, H2 must all be of the same type (byte or int).</h3>
+<h3>Example: GetCollision c,x1,y1,16,16,x2,y2,16,16</h3>
+
+<h2><font color="blue">SetSpriteAddress</font></h2>
+<h3>Set the values of the names, colors and patterns of the sprites, which will be used by the instruction SetColorSprite, DrawAttrSprites, DrawColorSprites and DrawPatternSprites.
+    It does not require parameters and must be used after the Screen command or after setting the registers of the VDP of the sprites attributes.
+    See Scroll Example in Examples folder.</h3>
+<h3>Example: SetSpriteAddress</h3>
+
+<h2><font color="blue">SetColorSprite nsprite,iddatacolors</font></h2>
+<h3>Set the color of the sprite specified in nsprite (0-31) with the data of the RAM specified at the address iddatacolors (16 bytes). Screen 4 or higher.</h3>
+<h3>Example: SetColorSprite 0,iddatacolors</h3>
+
+<h2><font color="blue">SetAttrSprites spritesrc,spritedest,yscreen</font> and <font color="blue">DrawAttrSprites spritedest</font></h2>
+<h3>These two commands must be used together.
+    The first law the values of the names of the sprites from 4 bytes matrices and copies them in a memory area, the second copy this memory area in the Vram at the address corresponding to the names of the sprites.
+    yscreen specifies a vertical offset useful when working with vertical scroll.<br>See Scroll Example in Examples folder to better understand how they work.</h3>
+    <h3>Example:<br>
+        Dim xspr(32),yspr(32),mspr(32),cspr(32)<br>Dim idsprsource As Int<br>Dim sprdest(128) As Byte<br>Dim idsprdest As Int<br>.<br>.<br>.<br>
+        GetAddressVar idsprsource,xspr(0)<br>GetAddressVar idsprdest,sprdest(0)<br>.<br>.<br>.<br>
+        SetAttrSprites spritesrc,spritedest,yscreen<br>DrawAttrSprites spritedest<br>
+        
+<h2><font color="blue">DrawColorSprites spritedest,numsprites,iddatacolors</font></h2>
+<h3>Set the color of the sprites specified in spritedest with the data of the RAM specified at the address iddatacolors. Screen 4 or higher.</h3>
+<h3>Example: DrawColorSprites 0,2,iddatacolors (Set the colors of sprites 0,1 and 2)</h3>
+                
+<h2><font color="blue">DrawPatternSprites spritedest,numsprites,iddatapatterns</font></h2>
+<h3>Set the pattern of the sprites specified in spritedest with the data of the RAM specified at the address iddatacolors. Screen 4 or higher.</h3>
+<h3>Example: DrawPatternSprites 3,4,iddatapatterns (Set the pattern of sprites 3,4,5 and 6)</h3>
+        
+<h2><font color="blue">SetVarsPage memorypage</font></h2>
+<h3>Set the variable memory page (it is nothing more than  OUT ($FE), memorypage) since the variables occupy the memory area $8000-$BFFF</h3>
+<h3>Example: SetVarsPage 1</h3>
+
+
+
+<hr>
+<a name="keycodes">
+<h2><font color="blue">List of key codes</font></h2>
+
+<h3>Key0, Key1, Key2, Key3, Key4, Key5, Key6, Key7, Key8, Key9, KeyMinus, KeyEqual, KeyBackslash, KeyOpenBracket, KeyCloseBracket, KeyColon, KeyQuote1, KeyQuote2, KeyMinor, KeyMajor, KeySlash, 
+KeyA, KeyB, KeyC, KeyD, KeyE, KeyF, KeyG, KeyH, KeyI, KeyJ, KeyK, KeyL, KeyM, KeyN, KeyO, KeyP, KeyQ, KeyR, KeyS, KeyT, KeyU, KeyV, KeyW, KeyX, KeyY, KeyZ, KeyShift, KeyCtrl, KeyGraph, KeyCap, KeyCode, 
+KeyF1, KeyF2, KeyF3, KeyF4, KeyF5, KeyEsc, KeyTab, KeyStop, KeyBs, KeySelect, KeyReturn, KeySpace, KeyHome, KeyIns, KeyDel, KeyLeft, KeyUp, KeyDown, KeyRight</h3>
+
+
+<hr>
+<a name="IDE"></a>
+<h2><font color="blue">IDE Functions</font></h2>
+
+<h3>The IDE contains all the normal functions of a text editor (for example: CTRL + Z = Undo)<br>
+    In addition there are some commands for different functions:</h3>
+
+<h2><font color="blue">CTRL + K = Set Main Project</font></h2>
+
+<h2><font color="blue">F12 = If pressed on a line number or a label after a GOTO or GOSUB instruction, moves the cursor to the original line number or label</font></h2>
+
+<br><br><br><br>
+<hr>
+<h3>Special thanks to Zeda Thomas for the <a href="https://github.com/Zeda/z80float">float32 routines!</a></h3>
+<h3>Special thanks to Grauw for information about assembly language (<a href="http://map.grauw.nl/">http://map.grauw.nl/</a>)</h3>
+
+<br><br>
 
 
 
