@@ -5,7 +5,7 @@ First select the emulator path.
 
 ![screenshot3](https://user-images.githubusercontent.com/118820016/203636763-f5b9a3da-550d-4ac0-a9c8-87012059e98a.png)
 
-On Mac OS it is necessary to set an additional path because the executable file is located inside the mulator's app folder.
+On Mac OS it is necessary to set an additional path because the executable file is located inside the emulator's app folder.
 
 Then open a project "*.msxproj" or create one yourself.
 When you are ready, press "F5" to compile and RUN!
