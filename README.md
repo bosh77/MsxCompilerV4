@@ -131,6 +131,10 @@ SetVarsPage</h3>
 <h3>Get the memory address of line or label specified and return it to the specified variable</h3>
 <h3>Example: GetAddressLine id,1000 (now the variable id contains memory address of line 1000)</h3>
 
+<h2><font color="blue">GetAddressVar</font></h2>
+<h3>Get the memory address of variable specified and return it to the another variable</h3>
+<h3>Example: GetAddressVar id,variable (now the variable id contains memory address of variable)</h3>
+
 <h2><font color="blue">DrawBlock ram, vram, lines, wram</font></h2>
 <h3>Copy a block of memory from RAM to VRAM</h3>
 <h3>Example: DrawBlock 0, 0, 10, 32</h3>
