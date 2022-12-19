@@ -2,9 +2,12 @@
 
 <a href="https://github.com/bosh77/MsxCompilerV4/releases/tag/MSXv4">MSX compiler V4 download</a>
 <br>
-2022-12-10: Added support for 256kb code
+2022-12-19: fixed PSET bug in Screen 4 or lower<br>
+2022-12-19: fixed PSET bug when color is not specified <br>
+2022-12-19: fixed IF...THEN bug<br>
+2022-12-10: Added support for 256kb code<br>
 
-<br><br>
+<br>
 
 <h3>Works on Windows and Mac OS. Write your code in BASIC (very similar to the Basic MSX but with some differences) and the compiler will create an assembly file that will go directly on .ROM or .DSK, to try on the emulator or real MSX.
 First select the emulator path.
