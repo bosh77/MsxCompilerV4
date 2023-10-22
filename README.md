@@ -10,7 +10,7 @@
 <br><br>
 Developed with <a href="https://www.cerberus-x.com">Cerberus X</a>
 <br><br>
-<h3>Works on Windows and Mac OS. Write your code in BASIC (very similar to the Basic MSX but with some differences) and the compiler will create an assembly file that will go directly on .ROM or .DSK, to try on the emulator or real MSX.
+<h3>Works on Windows, Mac OS and Linux. Write your code in BASIC (very similar to the Basic MSX but with some differences) and the compiler will create an assembly file that will go directly on .ROM or .DSK, to try on the emulator or real MSX.
 First select the emulator path.
 
 
