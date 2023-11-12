@@ -1,7 +1,12 @@
 # MsxCompilerV4
 
 <a href="https://github.com/bosh77/MsxCompilerV4/releases/tag/MSXv4">MSX compiler V4 download</a>
+<br><br>
+2023-11-12: fixed some bugs<br>
+2023-11-12: Added support for <a href="#musicplayer">music</a> and <a href="#effectplayer">sound effects</a><br>
+2023-11-12: Added StartInterrupt and StopInterrupt commands<br>
 <br>
+
 2022-12-19: fixed PSET bug in Screen 4 or lower<br>
 2022-12-19: fixed PSET bug when color is not specified <br>
 2022-12-19: fixed IF...THEN bug<br>
@@ -80,7 +85,7 @@ Pset, Circle, Paint, Line, Copy, Vpoke, Poke, Vpeek, Peek, PutSprite, Put Sprite
 DataF, DataI, DataS, ReadB, ReadF, ReadI, ReadS, Restore, DrawText, if...then...else,
 for...next, GetPoint, SetScroll, Sound, SaveData, LoadData, LoadDataToVram, SaveDataFromVram, CopyRamToVram, CopyVramToRam,
 ReadSector, WriteSector, GetCollision, SetAttrSprites, SetColorSprite, SetSpriteAddress, DrawAttrSprites, DrawColorSprites, DrawPatternSprites,
-SetVarsPage</h3>
+SetVarsPage, LoadMusic, PlayMusic, PauseMusic, ResumeMusic, LoadEffect, PlayEffect, StartInterrupt, StopInterrupt</h3>
 
 <h3>(In if...then use { } with boolean operator. ex: If a=1 And {b=2 or c=3} Then ... )</h3>
 
@@ -98,6 +103,55 @@ SetVarsPage</h3>
 ~ = xor<br>
 % = module<br>
 </h3>
+
+<hr>
+
+<H1>New added commands</H1>
+
+<a name="musicplayer"><h2><font color="blue"> #ImportMusicPlayer</font></h2></a>
+
+<h3>Now you can use the following commands (thanks to Augusto Ruiz for <a href="https://github.com/AugustoRuiz/WYZPlayer">WYZPlayer</a>)</h3>
+
+<h2><font color="blue"> LoadMusic</font></h2>
+<h3>Load a song created with <a href="https://github.com/AugustoRuiz/WYZTracker">WYZTracker</a> (thanks to Augusto Ruiz)</h3>
+<h3>Example: LoadMusic 0,"song"</h3>
+
+<h2><font color="blue"> PlayMusic</font></h2>
+<h3>Play a song loaded with LoadMusic</h3>
+<h3>Example: PlayMusic 0</h3>
+
+<h2><font color="blue"> PauseMusic</font></h2>
+<h3>Pause a song</h3>
+<h3>Example: PauseMusic</h3>
+
+<h2><font color="blue"> ResumeMusic</font></h2>
+<h3>Restart a song previously paused</h3>
+<h3>Example: ResumeMusic</h3>
+
+<br>
+
+<a name="effectplayer"><h2><font color="blue"> #ImportEffectPlayer</font></h2></a>
+
+<h3>Now you can use the following commands</h3>
+
+<h2><font color="blue"> LoadEffect</font></h2>
+<h3>Load a sound effect</h3>
+<h3>Example: LoadEffect 0,"sample"</h3>
+
+<h2><font color="blue"> PlayEffect</font></h2>
+<h3>Play a sound effect loaded with LoadEffect</h3>
+<h3>Example: PlayEffect 0</h3>
+
+<br>
+
+<h2><font color="blue">StartInterrupt</font></h2>
+<h3>Create an interruption that performs a routine to the page and label or the specified line number</h3>
+<h3>Example: StartInterrupt 0,myroutine</h3>
+<h3>Example: StartInterrupt 1,100</h3>
+
+<h2><font color="blue">StopInterrupt</font></h2>
+<h3>Stop the interruption created with StartInterrupt</h3>
+<h3>Example: StopInterrupt</h3>
 
 <hr>
 
@@ -247,7 +301,7 @@ SetVarsPage</h3>
 <h3>Example: DrawPatternSprites 3,4,iddatapatterns (Set the pattern of sprites 3,4,5 and 6)</h3>
         
 <h2><font color="blue">SetVarsPage memorypage</font></h2>
-<h3>Set the variable memory page (it is nothing more than  OUT ($FE), memorypage) since the variables occupy the memory area $8000-$BFFF</h3>
+<h3>Set the variable memory page (it is nothing more than OUT ($FE), memorypage) since the variables occupy the memory area $8000-$BFFF</h3>
 <h3>Example: SetVarsPage 1</h3>
 
 
@@ -276,9 +330,7 @@ KeyF1, KeyF2, KeyF3, KeyF4, KeyF5, KeyEsc, KeyTab, KeyStop, KeyBs, KeySelect, Ke
 <hr>
 <h3>Special thanks to Zeda Thomas for the <a href="https://github.com/Zeda/z80float">float32 routines!</a></h3>
 <h3>Special thanks to Grauw for information about assembly language (<a href="http://map.grauw.nl/">http://map.grauw.nl/</a>)</h3>
+<h3>Special thanks to Augusto Ruiz for the <a href="https://github.com/AugustoRuiz/WYZPlayer">WYZPlayer</a> and the <a href="https://github.com/AugustoRuiz/WYZTracker">WYZTracker</a> to compose music </h3>
 
 <br><br>
-
-
-
 
