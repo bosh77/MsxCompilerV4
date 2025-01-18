@@ -331,6 +331,7 @@ KeyF1, KeyF2, KeyF3, KeyF4, KeyF5, KeyEsc, KeyTab, KeyStop, KeyBs, KeySelect, Ke
 <h3>Special thanks to Zeda Thomas for the <a href="https://github.com/Zeda/z80float">float32 routines!</a></h3>
 <h3>Special thanks to Grauw for information about assembly language (<a href="http://map.grauw.nl/">http://map.grauw.nl/</a>)</h3>
 <h3>Special thanks to Augusto Ruiz for the <a href="https://github.com/AugustoRuiz/WYZPlayer">WYZPlayer</a> and the <a href="https://github.com/AugustoRuiz/WYZTracker">WYZTracker</a> to compose music </h3>
+<h3>Special thanks to WYZ (WYZplayer ASM Code and music modules)</h3>
 
 <br><br>
 
