@@ -28,7 +28,7 @@ When you are ready, press "F5" to compile and RUN!
 In the same folder you will find the ".DSK" or ".ROM" file, and ".ASM" source file if you have selected the option in the settings!
 </h3>
 <h3><b>
-Be careful when you activate the "Save .ASM File When Run" option because it saves the project in assembly files that can overestimate the existing ones</b></h3>
+Be careful when you activate the "Save .ASM File When Run" option because it saves the project in assembly files that can overwrite the existing ones</b></h3>
 
 <H1>How it's work</H1>
 <h3>The compiler read BASIC code and translate it in ASSEMBLER, then translate it in BINARY code
