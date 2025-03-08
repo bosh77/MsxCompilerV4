@@ -4,7 +4,7 @@
 
 
 2023-11-12: fixed some bugs
-2023-11-12: Added support for [music](#use-music-player) and sound effects
+2023-11-12: Added support for [music](#use-music-player) and [sound effects](#use-effect-player)
 2023-11-12: Added StartInterrupt and StopInterrupt commands
 
 2022-12-19: fixed PSET bug in Screen 4 or lower
@@ -113,6 +113,9 @@ Restart a song previously paused
 
 Example: **ResumeMusic**
 
+
+### Use Effect Player
+
 #### #ImportEffectPlayer
 
 Now you can use the following commands
@@ -173,17 +176,23 @@ makes a call to the specified page and program line (or label), as a Gosub instr
 
 Example: **CallPage 1,100**
 
-<h2><font color="blue">JumpPage</font></h2>
-<h3>makes a jump to the specified page and program line (or label), as a Goto instruction</h3>
-<h3>Example: JumpPage 2,mylabel</h3>
+#### JumpPage
 
-<h2><font color="blue">AsmLine</font></h2>
-<h3>Insert an assembly instruction</h3>
-<h3>Example: AsmLine "LD A,10"</h3>
+makes a jump to the specified page and program line (or label), as a Goto instruction
 
-<h2><font color="blue">GetChar()</font></h2>
-<h3>Read the Keyboard and return the ascii code corresponding to the key pressed</h3>
-<h3>Example: a=GetChar()</h3>
+Example: **JumpPage 2,mylabel**
+
+#### AsmLine
+
+Insert an assembly instruction
+
+Example: **AsmLine "LD A,10"**
+
+#### GetChar()
+
+Read the Keyboard and return the ascii code corresponding to the key pressed
+
+Example: **a=GetChar()**
 
 <h2><font color="blue">GetKey(KeyCode)</font></h2>
 <h3>Read the Keyboard and return 0 (key not pressed) or 255 (key pressed)</h3>
