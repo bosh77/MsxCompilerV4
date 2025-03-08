@@ -16,7 +16,6 @@
 [Developed with Cerberus X](https://www.cerberus-x.com)
 
 
-
 Works on Windows, Mac OS and Linux. Write your code in BASIC (very similar to the Basic MSX but with some differences) and the compiler will create an assembly file that will go directly on .ROM or .DSK, to try on the emulator or real MSX.
 First select the emulator path.
 
@@ -244,25 +243,40 @@ Gets the time of the system
 
 Example: **GetTime hours, minutes, seconds**
 
-<h2><font color="blue">SetPalette</font></h2>
-<h3>Set the color palette from 32 bytes long index variable</h3>
-<h3>Example:<br>Dim palette(32) As Byte<br>SetPalette palette</h3>
+#### SetPalette
 
-<h2><font color="blue">SetVDP</font></h2>
-<h3>Sets a VDP register with the specified value</h3>
-<h3>Example: SetVDP 24,10</h3>
+Set the color palette from 32 bytes long index variable
 
-<h2><font color="blue">GetFiles</font></h2>
-<h3>Reads files from the specified unit and inserts them in a index variable, also returning the number of files found</h3>
-<h3>Example:<br>Dim filesdata(1232) As Byte<br>Dim filesnum As Byte<br>GetFiles 0, filesdata, filesnum</h3>
+Example:  
+**Dim palette(32) As Byte**  
+**SetPalette palette**
 
-<h2><font color="blue">GetFileName</font></h2>
-<h3>Recover the name of a file from a index variable set before via Getfiles (see Getfiles)</h3>
-<h3>Example: GetFileName numfile, filesdata, filename</h3>
+#### SetVDP
 
-<h2><font color="blue">SaveData drive,filename,iddata,lengthdata</font></h2>
-<h3>Save a block of RAM memory on the disk, starting from the iddata memory address for the specified length.</h3>
-<h3>Example: SaveData 0,"filename.ext",iddata,100</h3>
+Sets a VDP register with the specified value
+
+Example: **SetVDP 24,10**
+
+#### GetFiles
+
+Reads files from the specified unit and inserts them in a index variable, also returning the number of files found
+
+Example:  
+**Dim filesdata(1232) As Byte**
+**Dim filesnum As Byte**
+**GetFiles 0, filesdata, filesnum**
+
+#### GetFileName
+
+Recover the name of a file from a index variable set before via Getfiles (see Getfiles)
+
+Example: **GetFileName numfile, filesdata, filename**
+
+#### SaveData drive,filename,iddata,lengthdata
+
+Save a block of RAM memory on the disk, starting from the iddata memory address for the specified length.
+
+Example: **SaveData 0,"filename.ext",iddata,100**
 
 <h2><font color="blue">LoadData drive,filename,iddata</font></h2>
 <h3>Load a file in the RAM memory, the initial address is specified by the iddata variable.</h3>
