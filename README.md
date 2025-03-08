@@ -3,16 +3,18 @@
 [MSX Compiler V4 download](https://github.com/bosh77/MsxCompilerV4/releases/tag/MSXv4)
 
 
-2023-11-12: fixed some bugs
-2023-11-12: Added support for [music](#use-music-player) and [sound effects](#use-effect-player) 
-2023-11-12: Added StartInterrupt and StopInterrupt commands
+2023-11-12: fixed some bugs  
+2023-11-12: Added support for [music](#use-music-player) and [sound effects](#use-effect-player)  
+2023-11-12: Added StartInterrupt and StopInterrupt commands  
 
-2022-12-19: fixed PSET bug in Screen 4 or lower
-2022-12-19: fixed PSET bug when color is not specified
-2022-12-19: fixed IF...THEN bug
-2022-12-10: Added support for 256kb code
+2022-12-19: fixed PSET bug in Screen 4 or lower  
+2022-12-19: fixed PSET bug when color is not specified  
+2022-12-19: fixed IF...THEN bug  
+2022-12-10: Added support for 256kb code  
+
 
 [Developed with Cerberus X](https://www.cerberus-x.com)
+
 
 
 Works on Windows, Mac OS and Linux. Write your code in BASIC (very similar to the Basic MSX but with some differences) and the compiler will create an assembly file that will go directly on .ROM or .DSK, to try on the emulator or real MSX.
@@ -57,7 +59,7 @@ Every variable must be declared with DIM before use it
 
 ![screenshot2](https://user-images.githubusercontent.com/118820016/203424623-6bc876ef-61fd-42c5-8d8e-f555e0363de0.png)
 
-## Supported instructions:
+## Supported instructions
 
 #lenstrings, #Imports, #SetVarAddress, IncludeFile, CallPage, JumpPage, AsmLine, Goto, Gosub, Return, Dim, Cls,GetChar, GetKey,
 Screen, Set page, Setpage, DrawXBlock, DrawBlock, DrawNumber, AddNumber, GetAddressLine,
@@ -70,11 +72,11 @@ SetVarsPage, LoadMusic, PlayMusic, PauseMusic, ResumeMusic, LoadEffect, PlayEffe
 
 (In if...then use { } with boolean operator. ex: If a=1 And {b=2 or c=3} Then ... )
 
-## Other functions:
+## Other functions
 
 TAN, ATN, COS, SIN, SQR, ABS, INT, RND, ASC, VAL, CHR, STR, HEX, INP, VDP, PAD
 
-## Operators for math operations:
+## Operators for math operations
 
 | = or  
 & = and  
@@ -188,22 +190,27 @@ Insert an assembly instruction
 
 Example: **AsmLine "LD A,10"**
 
-#### GetChar()
+#### GetChar(0)
 
 Read the Keyboard and return the ascii code corresponding to the key pressed
 
-Example: **a=GetChar()**
+Example: **a=GetChar(0)**
 
-<h2><font color="blue">GetKey(KeyCode)</font></h2>
-<h3>Read the Keyboard and return 0 (key not pressed) or 255 (key pressed)</h3>
-<h3>Example: b=GetKey(KeySpace)</h3>
-<h3>See all key codes <a href="#keycodes">here</a></h3>
+#### GetKey(KeyCode)
 
-<h2><font color="blue">GetAddressLine</font></h2>
-<h3>Get the memory address of line or label specified and return it to the specified variable</h3>
-<h3>Example: GetAddressLine id,1000 (now the variable id contains memory address of line 1000)</h3>
+Read the Keyboard and return 0 (key not pressed) or 255 (key pressed)
 
-<h2><font color="blue">GetAddressVar</font></h2>
+Example: **b=GetKey(KeySpace)**
+
+See all [key codes](#keycodes) here
+
+#### GetAddressLine
+
+Get the memory address of line or label specified and return it to the specified variable
+
+Example: **GetAddressLine id,1000** (now the variable id contains memory address of line 1000)
+
+#### GetAddressVar
 <h3>Get the memory address of variable specified and return it to the another variable</h3>
 <h3>Example: GetAddressVar id,variable (now the variable id contains memory address of variable)</h3>
 
@@ -311,33 +318,32 @@ Example: **a=GetChar()**
 <h3>Example: SetVarsPage 1</h3>
 
 
+### Key Codes
 
-<hr>
-<a name="keycodes">
-<h2><font color="blue">List of key codes</font></h2>
+List of key codes
 
-<h3>Key0, Key1, Key2, Key3, Key4, Key5, Key6, Key7, Key8, Key9, KeyMinus, KeyEqual, KeyBackslash, KeyOpenBracket, KeyCloseBracket, KeyColon, KeyQuote1, KeyQuote2, KeyMinor, KeyMajor, KeySlash, 
+Key0, Key1, Key2, Key3, Key4, Key5, Key6, Key7, Key8, Key9, KeyMinus, KeyEqual, KeyBackslash, KeyOpenBracket, KeyCloseBracket, KeyColon, KeyQuote1, KeyQuote2, KeyMinor, KeyMajor, KeySlash, 
 KeyA, KeyB, KeyC, KeyD, KeyE, KeyF, KeyG, KeyH, KeyI, KeyJ, KeyK, KeyL, KeyM, KeyN, KeyO, KeyP, KeyQ, KeyR, KeyS, KeyT, KeyU, KeyV, KeyW, KeyX, KeyY, KeyZ, KeyShift, KeyCtrl, KeyGraph, KeyCap, KeyCode, 
-KeyF1, KeyF2, KeyF3, KeyF4, KeyF5, KeyEsc, KeyTab, KeyStop, KeyBs, KeySelect, KeyReturn, KeySpace, KeyHome, KeyIns, KeyDel, KeyLeft, KeyUp, KeyDown, KeyRight</h3>
+KeyF1, KeyF2, KeyF3, KeyF4, KeyF5, KeyEsc, KeyTab, KeyStop, KeyBs, KeySelect, KeyReturn, KeySpace, KeyHome, KeyIns, KeyDel, KeyLeft, KeyUp, KeyDown, KeyRight
 
 
-<hr>
-<a name="IDE"></a>
-<h2><font color="blue">IDE Functions</font></h2>
+### IDE
 
-<h3>The IDE contains all the normal functions of a text editor (for example: CTRL + Z = Undo)<br>
-    In addition there are some commands for different functions:</h3>
+#### IDE Functions
 
-<h2><font color="blue">CTRL + K = Set Main Project</font></h2>
+The IDE contains all the normal functions of a text editor (for example: CTRL + Z = Undo)
 
-<h2><font color="blue">F12 = If pressed on a line number or a label after a GOTO or GOSUB instruction, moves the cursor to the original line number or label</font></h2>
+In addition there are some commands for different functions:
 
-<br><br><br><br>
-<hr>
-<h3>Special thanks to Zeda Thomas for the <a href="https://github.com/Zeda/z80float">float32 routines!</a></h3>
-<h3>Special thanks to Grauw for information about assembly language (<a href="http://map.grauw.nl/">http://map.grauw.nl/</a>)</h3>
-<h3>Special thanks to Augusto Ruiz for the <a href="https://github.com/AugustoRuiz/WYZPlayer">WYZPlayer</a> and the <a href="https://github.com/AugustoRuiz/WYZTracker">WYZTracker</a> to compose music </h3>
-<h3>Special thanks to WYZ (WYZplayer ASM Code and music modules)</h3>
+CTRL + K = Set Main Project
 
-<br><br>
+F12 = If pressed on a line number or a label after a GOTO or GOSUB instruction, moves the cursor to the original line number or label
+
+
+#### Special Thanks
+
+Special thanks to Zeda Thomas for the [float32 routines!](https://github.com/Zeda/z80float)  
+Special thanks to Grauw for information about assembly language [http://map.grauw.nl](http://map.grauw.nl/)  
+Special thanks to Augusto Ruiz for the [WYZPlayer](https://github.com/AugustoRuiz/WYZPlayer) and the [WYZTracker](https://github.com/AugustoRuiz/WYZTracker) to compose music  
+Special thanks to WYZ (WYZplayer ASM Code and music modules)
 
