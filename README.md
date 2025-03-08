@@ -1,10 +1,10 @@
-# MSX Compiler V4 v\_2025
+# MSX Compiler V4 v_2025
 
 [MSX Compiler V4 download](https://github.com/bosh77/MsxCompilerV4/releases/tag/MSXv4)
 
 
 2023-11-12: fixed some bugs
-2023-11-12: Added support for music and sound effects
+2023-11-12: Added support for [music](#music) and sound effects
 2023-11-12: Added StartInterrupt and StopInterrupt commands
 
 2022-12-19: fixed PSET bug in Screen 4 or lower
@@ -14,8 +14,9 @@
 
 [Developed with Cerberus X](https://www.cerberus-x.com)
 
-## Works on Windows, Mac OS and Linux. Write your code in BASIC (very similar to the Basic MSX but with some differences) and the compiler will create an assembly file that will go directly on .ROM or .DSK, to try on the emulator or real MSX.
-## First select the emulator path.
+
+Works on Windows, Mac OS and Linux. Write your code in BASIC (very similar to the Basic MSX but with some differences) and the compiler will create an assembly file that will go directly on .ROM or .DSK, to try on the emulator or real MSX.
+First select the emulator path.
 
 On Mac OS it is necessary to set an additional path because the executable file is located inside the emulator's app folder.
 Then open a project "*.msxproj" or create one yourself.
@@ -24,13 +25,18 @@ In the same folder you will find the ".DSK" or ".ROM" file, and ".ASM" source fi
 
 Be careful when you activate the "Save .ASM File When Run" option because it saves the project in assembly files that can overwrite the existing ones
 
-# How it's work
-### The compiler read BASIC code and translate it in ASSEMBLER, then translate it in BINARY code You can save and see ASM file if you want, select relative option in Settings window
-### if the binary code resulting from the compilation is greater than 16kb, then you will have to divide your project into more than one file, each with a maximum of 16kb of binary code, up to a maximum of 16 files. It is possible to make calls between files with the instructions CALLPAGE (as gosub) and JUMPPAGE (as goto)
-### example: CALLPAGE 1,100 --> make a calling to page 1 at line 100
-### Look at example folders to see how it's work
-### You can select TARGET of your compilation (CARTRIDGE or DISK)
-### Depending on the TARGET (cartridge or disk), a .ROM file of a maximum of 256kb or a .DSK file containing up to a maximum of 16 binary files of 16kb each will be created!
+## How it's work
+
+The compiler read BASIC code and translate it in ASSEMBLER, then translate it in BINARY code You can save and see ASM file if you want, select relative option in Settings window
+If the binary code resulting from the compilation is greater than 16kb, then you will have to divide your project into more than one file, each with a maximum of 16kb of binary code, up to a maximum of 16 files. It is possible to make calls between files with the instructions CALLPAGE (as gosub) and JUMPPAGE (as goto)
+
+example: CALLPAGE 1,100 --> make a calling to page 1 at line 100
+
+Look at example folders to see how it's work
+
+You can select TARGET of your compilation (CARTRIDGE or DISK)
+
+Depending on the TARGET (cartridge or disk), a .ROM file of a maximum of 512kb or a .DSK file containing up to a maximum of 32 binary files of 16kb each will be created!
 
 - Memory containing the binary code (4000h-7fffh) with memory mapper to change page
 - Memory containing the variables (8000h-bfffh)
@@ -38,63 +44,47 @@ Be careful when you activate the "Save .ASM File When Run" option because it sav
 - Additional memory available from cb30h onwards. (Note that the stack pointer is initialized to DB00h)
 - Stack (DB00h) but you can change it in Settings window
 
-</ul>
-</h4>
+## Instructions and syntax
 
-<hr>
+The supported variables are:
+- UBYTE (8 bit unsigned, ex: DIM A AS BYTE)    occupies 1 byte in memory
+- INT (16 bit, ex: DIM B AS INT )              occupies 2 bytes in memory
+- FLOAT (32 bit, ex: DIM C AS FLOAT)           occupies 4 bytes in memory
+- STRING (16-256 byte, ex: DIM D AS STRING)    length in memory depends on the #lenstrings command
+- ARRAY (ex: DIM E(10) AS INT) make 10 elements, not 11
 
-<H1>Instructions and syntax</H1>
-
-<h3>
-The supported variables are:</h3>
-<h3>
-<ul>
-<li>UBYTE (8 bit unsigned, ex: DIM A AS BYTE)    occupies 1 byte in memory</li>
-<li>INT (16 bit, ex: DIM B AS INT )              occupies 2 bytes in memory</li>
-<li>FLOAT (32 bit, ex: DIM C AS FLOAT)           occupies 4 bytes in memory</li>
-<li>STRING (16-256 byte, ex: DIM D AS STRING)    length in memory depends on the #lenstrings command</li>
-<li>ARRAY (ex: DIM E(10) AS INT) make 10 elements, not 11</li>
-</ul></h3>
-<h3>Every variable must be declared with DIM before use it</h3>
-
-
+Every variable must be declared with DIM before use it
 
 ![screenshot2](https://user-images.githubusercontent.com/118820016/203424623-6bc876ef-61fd-42c5-8d8e-f555e0363de0.png)
 
+## Supported instructions:
 
-<h2>Supported instructions:</h2>
-
-<h3>#lenstrings, #Imports, #SetVarAddress, IncludeFile, CallPage, JumpPage, AsmLine, Goto, Gosub, Return, Dim, Cls,GetChar, GetKey,
+#lenstrings, #Imports, #SetVarAddress, IncludeFile, CallPage, JumpPage, AsmLine, Goto, Gosub, Return, Dim, Cls,GetChar, GetKey,
 Screen, Set page, Setpage, DrawXBlock, DrawBlock, DrawNumber, AddNumber, GetAddressLine,
 GetDate, GetTime, GetFiles, GetFileName, SetPalette, SetVDP, Color, Color=, Locate, Print, Stick, Strig,
 Pset, Circle, Paint, Line, Copy, Vpoke, Poke, Vpeek, Peek, PutSprite, Put Sprite, DataB,
 DataF, DataI, DataS, ReadB, ReadF, ReadI, ReadS, Restore, DrawText, if...then...else,
 for...next, GetPoint, SetScroll, Sound, SaveData, LoadData, LoadDataToVram, SaveDataFromVram, CopyRamToVram, CopyVramToRam,
 ReadSector, WriteSector, GetCollision, SetAttrSprites, SetColorSprite, SetSpriteAddress, DrawAttrSprites, DrawColorSprites, DrawPatternSprites,
-SetVarsPage, LoadMusic, PlayMusic, PauseMusic, ResumeMusic, LoadEffect, PlayEffect, StartInterrupt, StopInterrupt</h3>
+SetVarsPage, LoadMusic, PlayMusic, PauseMusic, ResumeMusic, LoadEffect, PlayEffect, StartInterrupt, StopInterrupt
 
-<h3>(In if...then use { } with boolean operator. ex: If a=1 And {b=2 or c=3} Then ... )</h3>
+(In if...then use { } with boolean operator. ex: If a=1 And {b=2 or c=3} Then ... )
 
+## Other functions:
 
-<h2>Other functions:</h2>
+TAN, ATN, COS, SIN, SQR, ABS, INT, RND, ASC, VAL, CHR, STR, HEX, INP, VDP, PAD
 
-<h3>TAN, ATN, COS, SIN, SQR, ABS, INT, RND, ASC, VAL, CHR, STR, HEX, INP, VDP, PAD</h3>
+## Operators for math operations:
 
+| = or
+& = and
+~ = xor
+% = mod
 
-<h2>Operators for math operations:</h2>
+## New added commands
 
-<h3>
-| = or<br>
-& = and<br>
-~ = xor<br>
-% = module<br>
-</h3>
+#ImportMusicPlayer
 
-<hr>
-
-<H1>New added commands</H1>
-
-<a name="musicplayer"><h2><font color="blue"> #ImportMusicPlayer</font></h2></a>
 
 <h3>Now you can use the following commands (thanks to Augusto Ruiz for <a href="https://github.com/AugustoRuiz/WYZPlayer">WYZPlayer</a>)</h3>
 
