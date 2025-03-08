@@ -1,59 +1,43 @@
-# MsxCompilerV4
+# MSX Compiler V4 v\_2025
 
-<a href="https://github.com/bosh77/MsxCompilerV4/releases/tag/MSXv4">MSX compiler V4 download</a>
-<br><br>
-2023-11-12: fixed some bugs<br>
-2023-11-12: Added support for <a href="#musicplayer">music</a> and <a href="#effectplayer">sound effects</a><br>
-2023-11-12: Added StartInterrupt and StopInterrupt commands<br>
-<br>
-
-2022-12-19: fixed PSET bug in Screen 4 or lower<br>
-2022-12-19: fixed PSET bug when color is not specified <br>
-2022-12-19: fixed IF...THEN bug<br>
-2022-12-10: Added support for 256kb code<br>
-
-<br><br>
-Developed with <a href="https://www.cerberus-x.com">Cerberus X</a>
-<br><br>
-<h3>Works on Windows, Mac OS and Linux. Write your code in BASIC (very similar to the Basic MSX but with some differences) and the compiler will create an assembly file that will go directly on .ROM or .DSK, to try on the emulator or real MSX.
-First select the emulator path.
+[MSX Compiler V4 download](https://github.com/bosh77/MsxCompilerV4/releases/tag/MSXv4)
 
 
-![screenshot3](https://user-images.githubusercontent.com/118820016/203636763-f5b9a3da-550d-4ac0-a9c8-87012059e98a.png)
+2023-11-12: fixed some bugs
+2023-11-12: Added support for music and sound effects
+2023-11-12: Added StartInterrupt and StopInterrupt commands
+
+2022-12-19: fixed PSET bug in Screen 4 or lower
+2022-12-19: fixed PSET bug when color is not specified
+2022-12-19: fixed IF...THEN bug
+2022-12-10: Added support for 256kb code
+
+[Developed with Cerberus X](https://www.cerberus-x.com)
+
+## Works on Windows, Mac OS and Linux. Write your code in BASIC (very similar to the Basic MSX but with some differences) and the compiler will create an assembly file that will go directly on .ROM or .DSK, to try on the emulator or real MSX.
+## First select the emulator path.
 
 On Mac OS it is necessary to set an additional path because the executable file is located inside the emulator's app folder.
-
 Then open a project "*.msxproj" or create one yourself.
 When you are ready, press "F5" to compile and RUN!
 In the same folder you will find the ".DSK" or ".ROM" file, and ".ASM" source file if you have selected the option in the settings!
-</h3>
-<h3><b>
-Be careful when you activate the "Save .ASM File When Run" option because it saves the project in assembly files that can overwrite the existing ones</b></h3>
 
-<H1>How it's work</H1>
-<h3>The compiler read BASIC code and translate it in ASSEMBLER, then translate it in BINARY code
-    <br>
-You can save and see ASM file if you want, select relative option in Settings window</h3>
-<h3>if the binary code resulting from the compilation is greater than 16kb, then you will have to divide your project into more than one file, each with a maximum of 16kb of binary code, up to a maximum of 16 files.
-    It is possible to make calls between files with the instructions CALLPAGE (as gosub) and JUMPPAGE (as goto) </h3>
-<h3>example: CALLPAGE 1,100 --> make a calling to page 1 at line 100</h3>
-<h3>Look at example folders to see how it's work</h3>
-<h3>You can select TARGET of your compilation (CARTRIDGE or DISK)</h3>
-<h3>Depending on the TARGET (cartridge or disk), a .ROM file of a maximum of 256kb or a .DSK
-    file containing up to a maximum of 16 binary files of 16kb each will be created!</h3>
+Be careful when you activate the "Save .ASM File When Run" option because it saves the project in assembly files that can overwrite the existing ones
 
-<h4>
-    <ul>
-<li>Memory containing the binary code (4000h-7fffh)  with memory mapper to change page</li>
+# How it's work
+### The compiler read BASIC code and translate it in ASSEMBLER, then translate it in BINARY code You can save and see ASM file if you want, select relative option in Settings window
+### if the binary code resulting from the compilation is greater than 16kb, then you will have to divide your project into more than one file, each with a maximum of 16kb of binary code, up to a maximum of 16 files. It is possible to make calls between files with the instructions CALLPAGE (as gosub) and JUMPPAGE (as goto)
+### example: CALLPAGE 1,100 --> make a calling to page 1 at line 100
+### Look at example folders to see how it's work
+### You can select TARGET of your compilation (CARTRIDGE or DISK)
+### Depending on the TARGET (cartridge or disk), a .ROM file of a maximum of 256kb or a .DSK file containing up to a maximum of 16 binary files of 16kb each will be created!
 
-<li>Memory containing the variables   (8000h-bfffh)</li>
-<li>Reserved memory                   (c000h-cb2fh)</li>
+- Memory containing the binary code (4000h-7fffh) with memory mapper to change page
+- Memory containing the variables (8000h-bfffh)
+- Reserved memory (c000h-cb2fh)
+- Additional memory available from cb30h onwards. (Note that the stack pointer is initialized to DB00h)
+- Stack (DB00h) but you can change it in Settings window
 
-
-<li>Additional memory available from cb30h onwards.
-(Note that the stack pointer is initialized to d800h)</li>
-
-<li>Stack                             (d800h) but you can change it in Settings window</li>
 </ul>
 </h4>
 
