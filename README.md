@@ -202,7 +202,7 @@ Read the Keyboard and return 0 (key not pressed) or 255 (key pressed)
 
 Example: **b=GetKey(KeySpace)**
 
-See all [key codes](#keycodes) here
+See all [key codes](#key-codes) here
 
 #### GetAddressLine
 
@@ -211,26 +211,38 @@ Get the memory address of line or label specified and return it to the specified
 Example: **GetAddressLine id,1000** (now the variable id contains memory address of line 1000)
 
 #### GetAddressVar
-<h3>Get the memory address of variable specified and return it to the another variable</h3>
-<h3>Example: GetAddressVar id,variable (now the variable id contains memory address of variable)</h3>
 
-<h2><font color="blue">DrawBlock ram, vram, lines, wram</font></h2>
-<h3>Copy a block of memory from RAM to VRAM</h3>
-<h3>Example: DrawBlock 0, 0, 10, 32</h3>
-<h3>(See some examples in the Example folders)</h3>
+Get the memory address of variable specified and return it to the another variable
 
-<h2><font color="blue">DrawXBlock ram, vram, lines, wram, wvram, addvram</font></h2>
-<h3>Copy a block of memory from RAM to VRAM, it is also possible to specify 2 additional parameters</h3>
-<h3>Example: DrawXBlock 0, 0, 10, 32, 20, 40</h3>
-<h3>(See some examples in the Example folders)</h3>
+Example: **GetAddressVar id,variable** (now the variable id contains memory address of variable)
 
-<h2><font color="blue">GetDate</font></h2>
-<h3>Gets the date of the system</h3>
-<h3>Example: GetDate year, month, day, dayofweek</h3>
+#### DrawBlock ram, vram, lines, wram
 
-<h2><font color="blue">GetTime</font></h2>
-<h3>Gets the time of the system</h3>
-<h3>Example: GetTime hours, minutes, seconds</h3>
+Copy a block of memory from RAM to VRAM
+
+Example: **DrawBlock 0, 0, 10, 32**
+
+(See some examples in the Example folders)
+
+#### DrawXBlock ram, vram, lines, wram, wvram, addvram
+
+Copy a block of memory from RAM to VRAM, it is also possible to specify 2 additional parameters
+
+Example: **DrawXBlock 0, 0, 10, 32, 20, 40**
+
+(See some examples in the Example folders)
+
+#### GetDate
+
+Gets the date of the system
+
+Example: **GetDate year, month, day, dayofweek**
+
+#### GetTime
+
+Gets the time of the system
+
+Example: **GetTime hours, minutes, seconds**
 
 <h2><font color="blue">SetPalette</font></h2>
 <h3>Set the color palette from 32 bytes long index variable</h3>
