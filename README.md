@@ -4,7 +4,7 @@
 
 
 2023-11-12: fixed some bugs
-2023-11-12: Added support for [music](#use-music-player) and [sound effects](#use-effect-player)
+2023-11-12: Added support for [music](#use-music-player) and [sound effects](#use-effect-player) 
 2023-11-12: Added StartInterrupt and StopInterrupt commands
 
 2022-12-19: fixed PSET bug in Screen 4 or lower
@@ -76,10 +76,10 @@ TAN, ATN, COS, SIN, SQR, ABS, INT, RND, ASC, VAL, CHR, STR, HEX, INP, VDP, PAD
 
 ## Operators for math operations:
 
-| = or
-& = and
-~ = xor
-% = mod
+| = or  
+& = and  
+~ = xor  
+% = mod  
 
 ## New added commands
 
