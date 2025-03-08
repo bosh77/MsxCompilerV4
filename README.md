@@ -4,7 +4,7 @@
 
 
 2023-11-12: fixed some bugs
-2023-11-12: Added support for [music](#music) and sound effects
+2023-11-12: Added support for [music](#use-music-player) and sound effects
 2023-11-12: Added StartInterrupt and StopInterrupt commands
 
 2022-12-19: fixed PSET bug in Screen 4 or lower
@@ -83,74 +83,95 @@ TAN, ATN, COS, SIN, SQR, ABS, INT, RND, ASC, VAL, CHR, STR, HEX, INP, VDP, PAD
 
 ## New added commands
 
-#ImportMusicPlayer
+### Use Music Player
+
+#### #ImportMusicPlayer
+
+Now you can use the following commands (thanks to Augusto Ruiz and WYZ for [WYZPlayer](https://github.com/AugustoRuiz/WYZPlayer)
+
+#### LoadMusic
+
+Load a song created with [WYZTracker](https://github.com/AugustoRuiz/WYZTracker) (thanks to Augusto Ruiz and WYZ)
+
+Example: **LoadMusic 0,"song"**
+
+#### PlayMusic
+
+Play a song loaded with LoadMusic
+
+Example: **PlayMusic 0**
+
+#### PauseMusic
+
+Pause a song
+
+Example: **PauseMusic**
+
+#### ResumeMusic
+
+Restart a song previously paused
+
+Example: **ResumeMusic**
+
+#### #ImportEffectPlayer
+
+Now you can use the following commands
+
+#### LoadEffect
+
+Load a sound effect
+
+Example: **LoadEffect 0,"sample"**
+
+#### PlayEffect
+
+Play a sound effect loaded with LoadEffect
+
+Example: **PlayEffect 0**
 
 
-<h3>Now you can use the following commands (thanks to Augusto Ruiz for <a href="https://github.com/AugustoRuiz/WYZPlayer">WYZPlayer</a>)</h3>
+#### StartInterrupt
 
-<h2><font color="blue"> LoadMusic</font></h2>
-<h3>Load a song created with <a href="https://github.com/AugustoRuiz/WYZTracker">WYZTracker</a> (thanks to Augusto Ruiz)</h3>
-<h3>Example: LoadMusic 0,"song"</h3>
+Create an interruption that performs a routine to the page and label or the specified line number
 
-<h2><font color="blue"> PlayMusic</font></h2>
-<h3>Play a song loaded with LoadMusic</h3>
-<h3>Example: PlayMusic 0</h3>
+Example: **StartInterrupt 0,myroutine**
 
-<h2><font color="blue"> PauseMusic</font></h2>
-<h3>Pause a song</h3>
-<h3>Example: PauseMusic</h3>
+Example: **StartInterrupt 1,100**
 
-<h2><font color="blue"> ResumeMusic</font></h2>
-<h3>Restart a song previously paused</h3>
-<h3>Example: ResumeMusic</h3>
+#### StopInterrupt
 
-<br>
+Stop the interruption created with **StartInterrupt**
 
-<a name="effectplayer"><h2><font color="blue"> #ImportEffectPlayer</font></h2></a>
+Example: **StopInterrupt**
 
-<h3>Now you can use the following commands</h3>
 
-<h2><font color="blue"> LoadEffect</font></h2>
-<h3>Load a sound effect</h3>
-<h3>Example: LoadEffect 0,"sample"</h3>
+### New instructions of this BASIC version
 
-<h2><font color="blue"> PlayEffect</font></h2>
-<h3>Play a sound effect loaded with LoadEffect</h3>
-<h3>Example: PlayEffect 0</h3>
+#### #lenstrings
 
-<br>
+Set length of string. His value can be 15,31,63,127 or 255
 
-<h2><font color="blue">StartInterrupt</font></h2>
-<h3>Create an interruption that performs a routine to the page and label or the specified line number</h3>
-<h3>Example: StartInterrupt 0,myroutine</h3>
-<h3>Example: StartInterrupt 1,100</h3>
+Example: **#lenstrings=31**
 
-<h2><font color="blue">StopInterrupt</font></h2>
-<h3>Stop the interruption created with StartInterrupt</h3>
-<h3>Example: StopInterrupt</h3>
+#### #SetVarAddress
 
-<hr>
+Set the initial memory address of the variables
 
-<H1>New instructions of this BASIC version</H1>
+Example: **#SetVarAddress=$9000**
 
-<h2><font color="blue"> #lenstrings</font></h2>
+#### #Imports
 
-<h3>Set length of string. His value can be 15,31,63,127 or 255.</h3>
-<h3>Example: #lenstrings=31</h3>
+adds a new page to the project, which can be reached with the CALLPAGE or JUMPPAGE instructions
 
-<h2><font color="blue">#SetVarAddress</font></h2>
+Example: **#imports 1,"part2.msxproj"**
 
-<h3>Set the initial memory address of the variables</h3>
-<h3>Example: #SetVarAddress=$9000</h3>
+Now you can use **CALLPAGE** and **JUMPAGE**
 
-<h2><font color="blue">#Imports</font></h2>
-<h3>adds a new page to the project, which can be reached with the CALLPAGE or JUMPPAGE instructions</h3>
-<h3>Example: #imports 1,"part2.msxproj"</h3>
-<h3>Now you can use CALLPAGE and JUMPAGE</h3>
+#### CallPage
 
-<h2><font color="blue">CallPage</font></h2>
-<h3>makes a call to the specified page and program line (or label), as a Gosub instruction</h3>
-<h3>Example: CallPage 1,100</h3>
+makes a call to the specified page and program line (or label), as a Gosub instruction
+
+Example: **CallPage 1,100**
 
 <h2><font color="blue">JumpPage</font></h2>
 <h3>makes a jump to the specified page and program line (or label), as a Goto instruction</h3>
