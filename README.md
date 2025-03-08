@@ -278,72 +278,109 @@ Save a block of RAM memory on the disk, starting from the iddata memory address 
 
 Example: **SaveData 0,"filename.ext",iddata,100**
 
-<h2><font color="blue">LoadData drive,filename,iddata</font></h2>
-<h3>Load a file in the RAM memory, the initial address is specified by the iddata variable.</h3>
-<h3>Example: LoadData 0,"filename.ext",iddata</h3>
+#### LoadData drive,filename,iddata
 
-<h2><font color="blue">SaveDataFromVram drive,filename,iddata,lengthdata</font></h2>
-<h3>Save a block of VRAM memory on the disk, starting from the iddata memory address for the specified length.</h3>
-<h3>Example: SaveDataFromVram 0,"filename.ext",iddata,16384</h3>
+Load a file in the RAM memory, the initial address is specified by the iddata variable.  
 
-<h2><font color="blue">LoadDataToVram drive,filename,iddata</font></h2>
-<h3>Load a file in the VRAM memory, the initial address is specified by the iddata variable.</h3>
-<h3>Example: LoadDataToVram 0,"filename.ext",iddata</h3>
+Example: **LoadData 0,"filename.ext",iddata**
 
-<h2><font color="blue">ReadSector drive,idram,sector</font></h2>
-<h3>Load a Disk Sector to RAM memory, the initial address is specified by the idram variable.</h3>
-<h3>Example: ReadSector 0,32768,1</h3>
+#### SaveDataFromVram drive,filename,iddata,lengthdata  
 
-<h2><font color="blue">WriteSector drive,idram,sector</font></h2>
-<h3>He writes a sector on the disk with the 512 bytes contained in the RAM to the address specified by the idram variable.</h3>
-<h3>Be careful to use this command because it could compromise the disk in case of incorrect writing (always make a copy of the disk).</h3>
-<h3>Example: WriteSector 0,32768,14</h3>
+Save a block of VRAM memory on the disk, starting from the iddata memory address for the specified length.  
 
-<h2><font color="blue">CopyRamToVram ramaddress,vramaddress,lengthdata</font></h2>
-<h3>Copy a block of memory from RAM to VRAM.</h3>
-<h3>Example: CopyRamToVram 32768,0,16384</h3>
+Example: **SaveDataFromVram 0,"filename.ext",iddata,16384**
 
-<h2><font color="blue">CopyVramToRam vramaddress,ramaddress,lengthdata</font></h2>
-<h3>Copy a block of memory from VRAM to RAM.</h3>
-<h3>Example: CopyRamToVram 0,32768,16384</h3>
+#### LoadDataToVram drive,filename,iddata
 
-<h2><font color="blue">GetCollision c,x1,y1,w1,h1,x2,y2,w2,h2</font></h2>
-<h3>It detects a collision between two rectangular objects (for example two sprites) and returns 255 in the c variable in case of collision.
-    The variables X1, Y1, W1, H1, X2, Y2, W2, H2 must all be of the same type (byte or int).</h3>
-<h3>Example: GetCollision c,x1,y1,16,16,x2,y2,16,16</h3>
+Load a file in the VRAM memory, the initial address is specified by the iddata variable.  
 
-<h2><font color="blue">SetSpriteAddress</font></h2>
-<h3>Set the values of the names, colors and patterns of the sprites, which will be used by the instruction SetColorSprite, DrawAttrSprites, DrawColorSprites and DrawPatternSprites.
-    It does not require parameters and must be used after the Screen command or after setting the registers of the VDP of the sprites attributes.
-    See Scroll Example in Examples folder.</h3>
-<h3>Example: SetSpriteAddress</h3>
+Example: **LoadDataToVram 0,"filename.ext",iddata**
 
-<h2><font color="blue">SetColorSprite nsprite,iddatacolors</font></h2>
-<h3>Set the color of the sprite specified in nsprite (0-31) with the data of the RAM specified at the address iddatacolors (16 bytes). Screen 4 or higher.</h3>
-<h3>Example: SetColorSprite 0,iddatacolors</h3>
+#### ReadSector drive,idram,sector
 
-<h2><font color="blue">SetAttrSprites spritesrc,spritedest,yscreen</font> and <font color="blue">DrawAttrSprites spritedest</font></h2>
-<h3>These two commands must be used together.
-    The first law the values of the names of the sprites from 4 bytes matrices and copies them in a memory area, the second copy this memory area in the Vram at the address corresponding to the names of the sprites.
-    yscreen specifies a vertical offset useful when working with vertical scroll.<br>See Scroll Example in Examples folder to better understand how they work.</h3>
-    <h3>Example:<br>
-        Dim xspr(32),yspr(32),mspr(32),cspr(32)<br>Dim idsprsource As Int<br>Dim sprdest(128) As Byte<br>Dim idsprdest As Int<br>.<br>.<br>.<br>
-        GetAddressVar idsprsource,xspr(0)<br>GetAddressVar idsprdest,sprdest(0)<br>.<br>.<br>.<br>
-        SetAttrSprites spritesrc,spritedest,yscreen<br>DrawAttrSprites spritedest<br>
+Load a Disk Sector to RAM memory, the initial address is specified by the idram variable.  
+
+Example: **ReadSector 0,32768,1**
+
+#### WriteSector drive,idram,sector
+
+He writes a sector on the disk with the 512 bytes contained in the RAM to the address specified by the idram variable.  
+Be careful to use this command because it could compromise the disk in case of incorrect writing (always make a copy of the disk).  
+
+Example: **WriteSector 0,32768,14**
+
+#### CopyRamToVram ramaddress,vramaddress,lengthdata
+
+Copy a block of memory from RAM to VRAM.
+
+Example: **CopyRamToVram 32768,0,16384**
+
+#### CopyVramToRam vramaddress,ramaddress,lengthdata
+
+Copy a block of memory from VRAM to RAM.
+
+Example: **CopyRamToVram 0,32768,16384**
+
+#### GetCollision c,x1,y1,w1,h1,x2,y2,w2,h2
+
+It detects a collision between two rectangular objects (for example two sprites) and returns 255 in the c variable in case of collision.  
+The variables X1, Y1, W1, H1, X2, Y2, W2, H2 must all be of the same type (byte or int).
+
+Example: **GetCollision c,x1,y1,16,16,x2,y2,16,16**
+
+#### SetSpriteAddress
+
+Set the values of the names, colors and patterns of the sprites, which will be used by the instruction SetColorSprite, DrawAttrSprites, DrawColorSprites and DrawPatternSprites.  
+It does not require parameters and must be used after the Screen command or after setting the registers of the VDP of the sprites attributes.
+See Scroll Example in Examples folder.
+
+Example: **SetSpriteAddress**
+
+#### SetColorSprite nsprite,iddatacolors
+
+Set the color of the sprite specified in nsprite (0-31) with the data of the RAM specified at the address iddatacolors (16 bytes). Screen 4 or higher.  
+
+Example: **SetColorSprite 0,iddatacolors**
+
+#### SetAttrSprites spritesrc,spritedest,yscreen  and  DrawAttrSprites spritedest
+
+These two commands must be used together.  
+The first law the values of the names of the sprites from 4 bytes matrices and copies them in a memory area, the second copy this memory area in the Vram at the address corresponding to the names of the sprites.
+**yscreen** specifies a vertical offset useful when working with vertical scroll.  
+See Scroll Example in Examples folder to better understand how they work.  
+
+Example:
+
+**Dim xspr(32), yspr(32), mspr(32), cspr(32)  
+Dim idsprsource As Int
+Dim sprdest(128) As Byte
+Dim idsprdest As Int
+GetAddressVar idsprsource,xspr(0)
+GetAddressVar idsprdest,sprdest(0)
+SetAttrSprites spritesrc,spritedest,yscreen
+DrawAttrSprites spritedest**
         
-<h2><font color="blue">DrawColorSprites spritedest,numsprites,iddatacolors</font></h2>
-<h3>Set the color of the sprites specified in spritedest with the data of the RAM specified at the address iddatacolors. Screen 4 or higher.</h3>
-<h3>Example: DrawColorSprites 0,2,iddatacolors (Set the colors of sprites 0,1 and 2)</h3>
+#### DrawColorSprites spritedest,numsprites,iddatacolors
+
+Set the color of the sprites specified in spritedest with the data of the RAM specified at the address iddatacolors. Screen 4 or higher.
+
+Example: **DrawColorSprites 0,2,iddatacolors** (Set the colors of sprites 0,1 and 2)
                 
-<h2><font color="blue">DrawPatternSprites spritedest,numsprites,iddatapatterns</font></h2>
-<h3>Set the pattern of the sprites specified in spritedest with the data of the RAM specified at the address iddatacolors. Screen 4 or higher.</h3>
-<h3>Example: DrawPatternSprites 3,4,iddatapatterns (Set the pattern of sprites 3,4,5 and 6)</h3>
+#### DrawPatternSprites spritedest,numsprites,iddatapatterns
+
+Set the pattern of the sprites specified in spritedest with the data of the RAM specified at the address iddatacolors. Screen 4 or higher.  
+
+Example: **DrawPatternSprites 3,4,iddatapatterns** (Set the pattern of sprites 3,4,5 and 6)
         
-<h2><font color="blue">SetVarsPage memorypage</font></h2>
-<h3>Set the variable memory page (it is nothing more than OUT ($FE), memorypage) since the variables occupy the memory area $8000-$BFFF</h3>
-<h3>Example: SetVarsPage 1</h3>
+#### SetVarsPage memorypage
+
+Set the variable memory page (it is nothing more than **OUT ($FE), memorypage**) since the variables occupy the memory area $8000-$BFFF
+
+Example: **SetVarsPage 1**
 
 
+
+    
 ### Key Codes
 
 List of key codes
