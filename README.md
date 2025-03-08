@@ -342,7 +342,7 @@ Set the color of the sprite specified in nsprite (0-31) with the data of the RAM
 
 Example: **SetColorSprite 0,iddatacolors**
 
-#### SetAttrSprites spritesrc,spritedest,yscreen  and  DrawAttrSprites spritedest
+#### **SetAttrSprites spritesrc,spritedest,yscreen**  and  **DrawAttrSprites spritedest**
 
 These two commands must be used together.  
 The first law the values of the names of the sprites from 4 bytes matrices and copies them in a memory area, the second copy this memory area in the Vram at the address corresponding to the names of the sprites.
@@ -352,12 +352,12 @@ See Scroll Example in Examples folder to better understand how they work.
 Example:
 
 **Dim xspr(32), yspr(32), mspr(32), cspr(32)  
-Dim idsprsource As Int
-Dim sprdest(128) As Byte
-Dim idsprdest As Int
-GetAddressVar idsprsource,xspr(0)
-GetAddressVar idsprdest,sprdest(0)
-SetAttrSprites spritesrc,spritedest,yscreen
+Dim idsprsource As Int  
+Dim sprdest(128) As Byte  
+Dim idsprdest As Int  
+GetAddressVar idsprsource,xspr(0)  
+GetAddressVar idsprdest,sprdest(0)  
+SetAttrSprites spritesrc,spritedest,yscreen  
 DrawAttrSprites spritedest**
         
 #### DrawColorSprites spritedest,numsprites,iddatacolors
