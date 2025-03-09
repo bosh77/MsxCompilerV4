@@ -3,6 +3,7 @@
 [MSX Compiler V4 download](https://github.com/bosh77/MsxCompilerV4/releases/tag/MSXv4)
 
 v_2025:
+- Added support for 512kb code
 - Fixed many bugs
 - Added DiskProjectName "PROJNAME" command, to specify the name of the files on disk
 - Added several compilation options for .DSK and .ROM target
