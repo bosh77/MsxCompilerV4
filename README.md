@@ -2,6 +2,17 @@
 
 [MSX Compiler V4 download](https://github.com/bosh77/MsxCompilerV4/releases/tag/MSXv4)
 
+v_2025:
+- Fixed many bugs
+- Added DiskProjectName "PROJNAME" command, to specify the name of the files on disk
+- Added several compilation options for .DSK and .ROM target
+- Added LoadFont command
+- Added DrawGrpText command
+- Added IncludeBinary command
+- Added Copy "filename" To (x,y) and Copy (x1,y1)-(x2,y2) To "filename" commands
+- Improved graphic interface (thanks to [guiBASIC](https://github.com/zomagic/guiBasic))
+- Much faster compilation
+
 
 2023-11-12: fixed some bugs  
 2023-11-12: Added support for [music](#use-music-player) and [sound effects](#use-effect-player)  
