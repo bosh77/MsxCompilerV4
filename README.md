@@ -11,7 +11,7 @@ v_2025:
 - Added DrawGrpText command
 - Added IncludeBinary command
 - Added Copy "filename" To (x,y) and Copy (x1,y1)-(x2,y2) To "filename" commands
-- Improved graphic interface (thanks to [guiBASIC](https://github.com/zomagic/guiBasic))
+- Improved graphic interface (thanks to guiBasic)
 - Much faster compilation
 
 
@@ -25,7 +25,7 @@ v_2025:
 2022-12-10: Added support for 256kb code  
 
 
-[Developed with Cerberus X](https://www.cerberus-x.com)
+[Developed with Cerberus X](https://www.cerberus-x.com) and [guiBASIC](https://github.com/zomagic/guiBasic) module
 
 
 Works on Windows, Mac OS and Linux. Write your code in BASIC (very similar to the Basic MSX but with some differences) and the compiler will create an assembly file that will go directly on .ROM or .DSK, to try on the emulator or real MSX.
