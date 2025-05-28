@@ -68,7 +68,8 @@ The supported variables are:
 
 Every variable must be declared with DIM before use it
 
-![screenshot2](https://user-images.githubusercontent.com/118820016/203424623-6bc876ef-61fd-42c5-8d8e-f555e0363de0.png)
+![msxcompiler](https://github.com/user-attachments/assets/7017ee04-f0f2-467c-b8bb-065729df7f3a)
+
 
 ## Supported instructions
 
